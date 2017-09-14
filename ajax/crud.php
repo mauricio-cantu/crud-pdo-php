@@ -17,14 +17,7 @@ class CRUD
         $this->db = null;
     }
 
-    /*
-     * Add new Record
-     *
-     * @param $first_name
-     * @param $last_name
-     * @param $email
-     * @return $mixed
-     * */
+    
     public function create($data)
     {
         $query = $this->db->prepare("INSERT INTO users(first_name, last_name, email) VALUES (:first_name,:last_name,:email)");
@@ -35,11 +28,7 @@ class CRUD
         return $this->db->lastInsertId();
     }
 
-    /*
-     * Read all records
-     *
-     * @return $mixed
-     * */
+  
     public function read()
     {
         $query = $this->db->prepare("SELECT * FROM users");
@@ -51,11 +40,7 @@ class CRUD
         return $data;
     }
 
-    /*
-     * Delete Record
-     *
-     * @param $user_id
-     * */
+   
     public function delete($user_id)
     {
         $query = $this->db->prepare("DELETE FROM users WHERE id = :id");
@@ -63,14 +48,6 @@ class CRUD
         $query->execute();
     }
 
-    /*
-     * Update Record
-     *
-     * @param $first_name
-     * @param $last_name
-     * @param $email
-     * @return $mixed
-     * */
     public function update($data)
     {
         $query = $this->db->prepare("UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email  WHERE id = :id");
@@ -81,11 +58,7 @@ class CRUD
         $query->execute();
     }
 
-    /*
-     * Get Details
-     *
-     * @param $user_id
-     * */
+   
     public function details($user_id)
     {
         $query = $this->db->prepare("SELECT * FROM users WHERE id = :id");
